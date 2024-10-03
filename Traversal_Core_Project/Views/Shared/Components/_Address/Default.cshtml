@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.Contact
+<div class="col-lg-6 contact-left">
+    <div class="partners">
+        <div class="cont-details">
+            <h5>İletişime Geçin</h5>
+            <p class="mt-3 mb-4">
+                @Model.Description
+            </p>
+        </div>
+        <div class="hours">
+            <h6 class="mt-4">Email:</h6>
+            <p>
+                <a href="#">
+                    @Model.Mail
+                </a>
+            </p>
+            <h6 class="mt-4">Bizi Ziyaret Edin:</h6>
+            <p> @Model.Address</p>
+            <h6 class="mt-4">İletişim:</h6>
+            <p class="margin-top"><a href="tel:(+90) @Model.Phone ">(+90) @Model.Phone</a></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@model EntityLayer.Concrete.ContactUs
+@{
+    ViewData["Title"] = "ReadMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Gönderen: <small>@Model.Name / @Model.Mail</small> </h5>
+    <div class="card-body">
+        <label>Konu:</label>
+        <input class="form-control" disabled style="background-color: white;" asp-for="Subject"/>
+        <br />
+        @Html.Label("Mesaj:")
+        <textarea class="form-control" rows="10" cols="10" disabled style="background-color: white;">@Model.MessageBody</textarea>
+    </div>
+</div>
+
+
+

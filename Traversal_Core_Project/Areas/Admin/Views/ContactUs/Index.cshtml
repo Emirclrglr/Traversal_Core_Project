@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ContactUs>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h5 class="card-header">Bize Ulaş</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td align="center" style="font-weight: bold;">#</td>
+                        <th>Gönderen</th>
+                        <th>Konu</th>
+                        <th>Gönderen İletişim</th>
+                        <td align="center" style="font-weight: bold;">Tarih</td>
+                        <td align="center" style="font-weight: bold;">Sil</td>
+                        <td align="center" style="font-weight: bold;">Mesajı Görüntüle</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td align="center" style="font-weight: bold;">@count</td>
+                            <td>@item.Name</td>
+                            <td>@item.Subject</td>
+                            <td>@item.Mail</td>
+                            <td align="center">@(((DateTime)item.MessageDate).ToString("dd/MM/yyyy HH:mm"))</td>
+                            <td align="center"><a href="/Admin/ContactUs/Delete/@item.Id" class="btn rounded-pill btn-danger">Sil</a></td>
+                            <td align="center"><a href="/Admin/ContactUs/ReadMessage/@item.Id" class="btn rounded-pill btn-primary">Mesajı Görüntüle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+        </div>
+    </div>
+</div>
+

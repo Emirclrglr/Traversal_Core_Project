@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div>
+        <div class="card p-2" style=" text-align: center; display: flex; justify-content: center;">
+            <h1 class="text-center">Excel Raporları Sayfası</h1>
+            <div class="form-group py-1 d-grid gap-2">
+                <a href="/Excel/StaticExcelReport/" class="btn btn-outline-info">Statik Excel Raporu</a>
+            </div>
+
+            <div class="form-group d-grid gap-2">
+                <a href="/Excel/DestinationExcelReport/" class="btn btn-outline-primary">Tur Rotaları Excel Raporu</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />

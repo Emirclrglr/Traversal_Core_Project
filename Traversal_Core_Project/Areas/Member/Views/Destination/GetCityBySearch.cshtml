@@ -1,0 +1,44 @@
+﻿@model List<Destination>
+
+@{
+    ViewData["Title"] = "GetCityBySearch";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+
+}
+
+<div class="card p-5">
+
+    <form asp-action="GetCityBySearch" method="get" asp-area="Member" class="d-inline-flex">
+        <div class="d-flex align-items-end mb-2">
+            <input type="text" name="searchString" class="form-control" value="@ViewData["CurrentFilter"]" placeholder="Aranacak Şehir..." />
+            <input type="submit" value="Şehir Ara" class="btn btn-outline-dark ms-2 ml-1" />
+        </div>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Şehir</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Süre</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kapasite</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fiyat</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Detaylar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td align="center">@item.City</td>
+                    <td align="center">@item.LengthOfStay</td>
+                    <td align="center">@item.Capacity</td>
+                    <td align="center">@item.Price$</td>
+                    <td align="center"><a href="/Destination/DestinationDetails/@item.Id" target="_blank" class="btn btn-primary">Detaylar</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+

@@ -1,0 +1,27 @@
+﻿@model BankAccountVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card-body">
+    <h3>UoW Personel Prim Transferi</h3>
+    <form method="post">
+        <div>
+            <label>Gönderen</label>
+            <input type="text" asp-for="SenderId" class="form-control" />
+        </div>
+        <div>
+            <label>Alıcı</label>
+            <input type="text" asp-for="ReceiverId" class="form-control" />
+        </div>
+        <div>
+            <label>Miktar</label>
+            <input type="text" asp-for="Amount" class="form-control" />
+        </div>
+        <br />
+        <button class="btn btn-outline-warning">Hesaba Aktar</button>
+    </form>
+</div>
+

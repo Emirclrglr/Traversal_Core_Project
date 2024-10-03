@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Reservation>
+@{
+    ViewData["Title"] = "ReservationUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Rezervasyon Geçmişi</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Kullanıcı</th>
+                        <th>Konum</th>
+                        <td align="center" style="font-weight: bold;">Kişi Sayısı</td>
+                        <td align="center" style="font-weight: bold;">Rezervasyon Tarihi</td>
+                        <td align="center" style="font-weight: bold;">Durum</td>
+                        <td align="center" style="font-weight: bold;">Sil</td>
+                        <td align="center" style="font-weight: bold;">Detaylar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.AppUser.FirstName @item.AppUser.LastName</td>
+                            <td>@item.Destination.City</td>
+                            <td align="center">@item.PersonCount</td>
+                            <td align="center">@(((DateTime)item.ReservationDate).ToString("dd/MM/yyyy HH:mm"))</td>
+                            @if (item.Status == "Onaylandı")
+                            {
+                                <td align="center"><span class="btn rounded-pill btn-success">Onaylandı</span></td>
+                            }
+                            else if(item.Status == "Onay Bekliyor")
+                            {
+                                <td align="center"><span class="btn rounded-pill btn-warning">Onay Bekliyor</span></td>
+                            }
+                            else if (item.Status == "İşlem Yapıldı")
+                            {
+                                <td align="center"><span class="btn rounded-pill btn-primary">İşlem Yapıldı</span></td>
+                            }
+                            else if (item.Status == "Reddedildi")
+                            {
+                                <td align="center"><span class="btn rounded-pill btn-danger">Reddedildi</span></td>
+                            }
+                            <td align="center"><a href="#" class="btn rounded-pill btn-danger">Sil</a></td>
+                            <td align="center"><a href="#" class="btn rounded-pill btn-dark">Detaylar</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

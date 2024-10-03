@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <h5 class="card-header">Yorum Listesi</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Kullanıcı</th>
+                        <th>Rota</th>
+                        <td align="center" style="font-weight: bold;">Tarih</td>
+                        <td align="center" style="font-weight: bold;">Sil</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Destination.City</td>
+                            <td align="center">@(((DateTime)item.Date).ToString("dd/MM/yyyy HH:mm"))</td>
+                            <td align="center"><a href="/Admin/Comment/DeleteComment/@item.Id" class="btn rounded-pill btn-danger">Sil</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+        </div>
+    </div>
+</div>
+
+
+

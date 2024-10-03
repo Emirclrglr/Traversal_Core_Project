@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Scripts
+{
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(() => {
+            // SignalR bağlantısı başlatılıyor
+            var connection = new signalR.HubConnectionBuilder()
+                .withUrl("http://localhost:4620/VisitorHub")  // HTTPS kullanıyorsanız, http yerine https yazmalısınız
+                .build();
+
+            // Bağlantı durumu, connectionState bir enum olduğu için toString kullanılıyor
+            $("#connectionStatus").text(connection.state);
+
+            // Bağlantıyı başlat
+            connection.start().then(() => {
+                // Bağlantı başarılı olduğunda durumu güncelle
+                $("#connectionStatus").text(connection.state);
+            }).catch((err) => {
+                // Hata çıktısını konsola yazdır
+                console.log(err);
+            });
+        });
+    </script>
+}
+
+<div class="container">
+    <br />
+    <div class="alert alert-warning">
+        Bağlantınızın Durumu: <b id="connectionStatus"></b> 
+    </div>
+</div>

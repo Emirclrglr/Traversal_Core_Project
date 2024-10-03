@@ -1,0 +1,11 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<div class="card p-5">
+    <h1>Çoklu Dil Desteği</h1>
+    <p>@localizer["Merhaba"]</p>
+</div>
+

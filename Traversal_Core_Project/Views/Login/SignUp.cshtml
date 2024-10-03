@@ -1,0 +1,101 @@
+﻿@model Traversal_Core_Project.Models.RegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Traversal Hesabınızı Oluşturun</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+          content="Yeni maceralara atılmaya hazır mısınız? Kayıt olarak, size özel seyahat fırsatlarına, ilham verici gezi rotalarına ve tatil ipuçlarına anında erişim sağlayın. Dünyanın dört bir yanındaki en iyi destinasyonları keşfederken, kişiselleştirilmiş öneriler ve kampanyalardan faydalanın. Hemen üye olun, seyahatinizi daha keyifli ve kolay hale getirelim!" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+</head>
+
+<body>
+    <!-- /login-section -->
+    <section class="w3l-login-6">
+        <div class="login-hny">
+            <div class="form-content">
+                <div class="form-right">
+                    <div class="overlay">
+                        <div class="grid-info-form">
+                            <h5>Hoş Geldiniz</h5>
+                            <h3>Hadi Yeni Hesabınızı Oluşturalım</h3>
+                            <p>
+                                Yeni maceralara atılmaya hazır mısınız? Kayıt olarak, size özel seyahat fırsatlarına, ilham verici gezi rotalarına ve tatil ipuçlarına anında erişim sağlayın. Dünyanın dört bir yanındaki en iyi destinasyonları keşfederken, kişiselleştirilmiş öneriler ve kampanyalardan faydalanın. Hemen üye olun, seyahatinizi daha keyifli ve kolay hale getirelim!
+                            </p>
+                            <a href="/Login/SignIn/" class="read-more-1 btn">Hadi Başlayalım</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-left">
+                    <div class="middle">
+                        <h4>Bize Katılın</h4>
+                        <p>Hesabınızı oluşturun, tamamen ücretsiz.</p>
+                    </div>
+                    <form method="post" class="signin-form">
+                        <div class="form-input">
+                            <label>Adınız</label>
+                            <input type="text" name="" placeholder="" required asp-for="FirstName"/>
+                        </div>
+                        <div class="form-input">
+                            <label>Soyadınız</label>
+                            <input type="text" name="" placeholder="" required asp-for="LastName"/>
+                        </div>
+                        <div class="form-input">
+                            <label>Kullanıcı Adınız</label>
+                            <input type="text" name="" placeholder="" required asp-for="Username"/>
+                        </div>
+                        <div class="form-input">
+                            <label>Email</label>
+                            <input type="email" name="" placeholder="" required asp-for="Email"/>
+                        </div>
+                        <div class="form-input">
+                            <label>Şifre</label>
+                            <input type="password" name="" placeholder="" required asp-for="Password" />
+                        </div>
+                        <div class="form-input">
+                            <label>Şifre Tekrar</label>
+                            <input type="password" name="" placeholder="" required asp-for="ConfirmPassword"/>
+                        </div>
+
+                        <label class="container">
+                           Kullanım <a href="#">Koşullarını</a> ve <a href="#">Gizlilik</a> İlkelerini Kabul Ediyorum
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <button class="btn">Hesabınızı Oluşturun</button>
+                    </form>
+                    <div class="copy-right text-center">
+                        <p>
+                            © @DateTime.Now.Year Traversal. Tüm Hakları Saklıdır | Design by
+                            <a href="http://w3layouts.com/" target="_blank">W3layouts</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

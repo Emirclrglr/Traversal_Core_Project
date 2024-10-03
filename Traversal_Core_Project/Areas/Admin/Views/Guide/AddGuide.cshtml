@@ -1,0 +1,45 @@
+﻿@model Traversal_Core_Project.Areas.Admin.Models.AddGuideViewModel
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-xl">
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Yeni Rehber Girişi</h5>
+        </div>
+        <div class="card-body">
+            <form method="post">
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Ad Soyad</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" placeholder="Ad Soyad" required asp-for="Name" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Açıklama</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" placeholder="Açıklama" required asp-for="Description" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">X Bağlantısı</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" placeholder="X Bağlantısı" required asp-for="TwitterUrl" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Instagram Bağlantısı</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" placeholder="Instagram Bağlantısı" required asp-for="InstagramUrl" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Rehber Görseli</label>
+                    <input type="file" class="form-control" id="basic-default-fullname" placeholder="Rehber Görseli" required asp-for="Image" />
+                </div>
+
+                <button type="submit" class="btn rounded-pill btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+

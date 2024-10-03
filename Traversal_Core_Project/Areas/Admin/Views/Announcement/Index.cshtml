@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AnnouncementList_DTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<div class="card">
+    <h5 class="card-header">Duyuru Listesi</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td align="center" style="font-weight: bold;">#</td>
+                        <th>Başlık</th>
+                        <th>Duyuru</th>
+                        <td align="center" style="font-weight: bold;">Sil</td>
+                        <td align="center" style="font-weight: bold;">Düzenle</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td align="center">@count</td>
+                            <td>@item.Title</td>
+                            <td>@item.Content</td>
+                            <td align="center"><a href="/Admin/Announcement/DeleteAnnouncement/@item.Id" class="btn rounded-pill btn-danger">Sil</a></td>
+                            <td align="center"><a href="/Admin/Announcement/UpdateAnnouncement/@item.Id" class="btn rounded-pill btn-primary">Düzenle</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+            <a href="/Admin/Announcement/CreateAnnouncement/" class="btn rounded-pill btn-primary">Yeni Duyuru Oluştur</a>
+        </div>
+    </div>
+</div>
+
+
+

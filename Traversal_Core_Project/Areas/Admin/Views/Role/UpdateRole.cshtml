@@ -1,0 +1,26 @@
+﻿@model Update_Role_VM
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="card p-5">
+        <h1 class="text-center">Rol Düzenle</h1>
+        <form method="post">
+            <input type="hidden" asp-for="Id"/>
+            <input type="hidden" asp-for="NormalizedName"/>
+            <input type="hidden" asp-for="ConcurrencyStamp"/>
+            <div class="form-group" style="display: flex; flex-direction: row; align-items: center;">
+                <label style="width: 100px; font-size: 20px">Rol Adı:</label>
+                <input type="text" asp-for="RoleName" class="form-control pl-4" required />
+            </div>
+            <div class="text-center d-grid gap-2">
+                <button class="btn btn-outline-primary mt-2">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

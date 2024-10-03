@@ -1,0 +1,53 @@
+﻿@model List<AppRole>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="container">
+    <div class="card p-5">
+        <h1 class="text-center">Rol Listesi</h1>
+        <table class="table table-bordered">
+           
+            @if (Model.Count > 0)
+            {
+                <thead>
+                    <tr>
+                        <th width="30px">#</th>
+                        <th>Rol Adı</th>
+                        <th width="80px" class="text-center">Rolü Sil</th>
+                        <th width="80px" class="text-center">Rolü Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td>@count</td>
+                            <td>@item.Name</td>
+                            <td class="text-center"><a href="/Admin/Role/DeleteRole/@item.Id" class="btn btn-outline-danger">Rolü Sil</a></td>
+                            <td class="text-center"><a href="/Admin/Role/UpdateRole/@item.Id" class="btn btn-outline-success">Rolü Düzenle</a></td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            }
+            else
+            {
+                <div class="alert alert-danger text-center">
+                    <p class="text-danger pt-3">Gösterilecek Rol Bulunamadı. Eklemek için <a href="#" style="font-weight: bold; color:red;">Tıklayın</a></p>
+                </div>
+
+            }
+
+        </table>
+
+        <a href="/Admin/Role/CreateRole/" class="btn btn-outline-primary mt-2">Yeni Rol Oluştur</a>
+
+    </div>
+</div>
+

@@ -1,0 +1,32 @@
+﻿@model Create_Announcement_DTO
+@{
+    ViewData["Title"] = "CreateAnnouncement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-xl">
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Yeni Duyuru Oluştur</h5>
+        </div>
+        <div class="card-body">
+            <form method="post">
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Başlık</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" placeholder="Başlık Giriniz"  asp-for="Title" />
+                    <span class="text-danger" asp-validation-for="Title"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Duyuru Yazısı</label>
+                    <textarea type="text" class="form-control" id="basic-default-fullname" placeholder="Duyuracaklarınız"  asp-for="Content" rows="10"cols="10"></textarea>
+                    <span class="text-danger" asp-validation-for="Content"></span>
+                </div>
+
+                <button type="submit" class="btn rounded-pill btn-primary">Oluştur</button>
+            </form>
+        </div>
+    </div>
+</div>
+

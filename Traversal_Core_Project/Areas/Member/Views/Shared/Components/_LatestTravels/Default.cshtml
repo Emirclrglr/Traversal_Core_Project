@@ -1,0 +1,93 @@
+﻿@model List<Destination>
+@{
+    int count = 0;
+}
+
+<head>
+    <style>
+        .img-travels {
+            border-radius: 8%;
+            transition: all .5s;
+            transform: scale(1);
+        }
+
+        .img-travels:hover {
+            transform: scale(1.1);
+            
+        }
+
+        .img-box-shadow {
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        }
+
+        .img-box-shadow:hover {
+                /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+                box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+
+    </style>
+</head>
+
+<div class="col-12 mt-4">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="mb-1 card-title">Son Seyahatler</h4>
+            <p class="text-sm">Traversal Şirketinin En Son Eklenen Seyehat Rotaları</p>
+        </div>
+        <div class="card-body px-2">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                        <div class="card card-blog card-plain">
+                            <div class="position-relative">
+                                <a class="d-block shadow-xl border-radius-xl" href="/Destination/DestinationDetails/@item.Id" target="_blank">
+                                    <img src="@item.Image" alt="img-blur-shadow" class="border-radius-xl img-travels img-box-shadow" width="100%" height="200">
+                                </a>
+                            </div>
+                            <div class="card-body px-1 pb-0">
+                                <p class="text-gradient text-dark mb-2 text-sm">Seyahat #@count</p>
+                                <a href="/Destination/DestinationDetails/@item.Id" target="_blank">
+                                    <h5>
+                                        @item.City
+                                    </h5>
+                                </a>
+                                <p class="mb-2 text-sm">
+                                    @if (item.Details1Heading.Length <= 40)
+                                    {
+                                        @item.Details1Heading
+                                    }
+                                    else
+                                    {
+                                        @item.Details1Heading.Substring(0, 39)<small>...</small>
+                                    }
+
+                                </p>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <a href="/Destination/DestinationDetails/@item.Id" target="_blank" type="button" class="btn btn-outline-primary btn-sm mb-0">Tur Detayları</a>
+                                    <div class="avatar-group mt-2">
+                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
+                                            <img alt="Image placeholder" src="~/soft-ui-dashboard-main/assets/img/team-1.jpg">
+                                        </a>
+                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
+                                            <img alt="Image placeholder" src="~/soft-ui-dashboard-main/assets/img/team-2.jpg">
+                                        </a>
+                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
+                                            <img alt="Image placeholder" src="~/soft-ui-dashboard-main/assets/img/team-3.jpg">
+                                        </a>
+                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
+                                            <img alt="Image placeholder" src="~/soft-ui-dashboard-main/assets/img/team-4.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

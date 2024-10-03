@@ -1,0 +1,45 @@
+﻿@model Traversal_Core_Project.Areas.Member.Models.UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="container">
+    <div class="card p-5">
+        <h1 class="text-center">Profil Düzenleme Sayfası</h1>
+        <form method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(x => x.ImageUrl)
+            @Html.Label("Adınız")
+            <input type="text" asp-for="FirstName" class="form-control" />
+            <br />
+            @Html.Label("Soyadınız")
+            <input type="text" asp-for="LastName" class="form-control" />
+            <br />
+            @Html.Label("Mail")
+            <input type="email" asp-for="Mail" class="form-control" />
+            <br />
+            @Html.Label("Telefon")
+            <input type="text" asp-for="PhoneNumber" class="form-control" />
+            <br />
+            @Html.Label("Şifre")
+            <input type="password" asp-for="Password" class="form-control" />
+            <br />
+            @Html.Label("Şifre Tekrar")
+            <div class="form-group">
+                <input type="password" asp-for="ConfirmPassword" class="form-control" />
+                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Resim Seçin</label>
+                <input type="file" asp-for="Image" />
+            </div>
+            <br />
+            <button class="btn btn-primary">Bilgileri Güncelle</button>
+        </form>
+
+    </div>
+</div>
+
+
+

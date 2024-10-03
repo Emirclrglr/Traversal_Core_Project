@@ -1,0 +1,43 @@
+﻿@using Traversal_Core_Project.Areas.Admin.Models
+@model IEnumerable<BookingHotelSearchViewModel.Result>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Booking Otel Rezervasyon Sayfası. Paris/Fransa</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td align="center" style="font-weight: bold;">Görsel</td>
+                        <td align="center" style="font-weight: bold;">Otel Adı</td>
+                        <td align="center" style="font-weight: bold;">Otel Puanı</td>
+                        <td align="center" style="font-weight: bold;">Otel Değerlendirmesi</td>
+                        <td align="center" style="font-weight: bold;">Detaylar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td align="center"><img src="@item.max_photo_url" alt="gorsel" style="height: 200px; width: 200px; border-radius: 10px;" /></td>
+                            <td align="center">@item.hotel_name</td>
+                            <td align="center">@item.review_score</td>
+                            <td align="center">@item.review_score_word</td>
+                            <td align="center"><a href="#" class="btn btn-outline-info">Detaylar</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+        </div>
+    </div>
+</div>
+
+
+
+

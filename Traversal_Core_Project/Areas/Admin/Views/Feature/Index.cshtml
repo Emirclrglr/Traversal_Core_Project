@@ -1,0 +1,54 @@
+﻿@using DTOLayer.DTOs.FeatureDTOs
+@model IEnumerable<List_Feature_DTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h5 class="card-header">Öne Çıkanlar</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td align="center" style="font-weight: bold;">#</td>
+                        <th>Başlık</th>
+                        <th>Açıklama</th>
+                        <td align="center" style="font-weight: bold;">Durum</td>
+                        <td align="center" style="font-weight: bold;">Sil</td>
+                        <td align="center" style="font-weight: bold;">Düzenle</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td align="center">@count</td>
+                            <td>@item.Title</td>
+                            <td>@item.Description</td>
+                            @if(item.Status == true)
+                            {
+                                <td align="center"><span class="badge rounded-pill bg-success">Aktif</span></td>
+                            }
+                            else
+                            {
+                                <td align="center"><span class="badge rounded-pill bg-danger">Pasif</span></td>
+
+                                
+                            }
+                            <td align="center"><a href="/Admin/Feature/DeleteFeature/@item.Id" class="btn rounded-pill btn-danger">Sil</a></td>
+                            <td align="center"><a href="/Admin/Feature/UpdateFeature/@item.Id" class="btn rounded-pill btn-primary">Düzenle</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+            <a href="/Admin/Feature/CreateFeature/" class="btn rounded-pill btn-primary">Yeni Öne Çıkan Oluştur</a>
+        </div>
+    </div>
+</div>
+

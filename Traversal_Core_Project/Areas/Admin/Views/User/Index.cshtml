@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Misafir Listesi</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Misafir</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <td align="center" style="font-weight: bold;">Sil</td>
+                        <td align="center" style="font-weight: bold;">Düzenle</td>
+                        <td align="center" style="font-weight: bold;">Yorumlar</td>
+                        <td align="center" style="font-weight: bold;">Tur Geçmişi</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FirstName @item.LastName</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Email</td>
+                            <td>@item.PhoneNumber</td>
+                            <td align="center"><a href="/Admin/User/DeleteUser/@item.Id" class="btn rounded-pill btn-danger">Sil</a></td>
+                            <td align="center"><a href="/Admin/User/EditUser/@item.Id" class="btn rounded-pill btn-primary">Düzenle</a></td>
+                            <td align="center"><a href="/Admin/User/CommentUser/@item.Id" class="btn rounded-pill btn-dark">Yorumlar</a></td>
+                            <td align="center"><a href="/Admin/User/ReservationUser/@item.Id" class="btn rounded-pill btn-info">Tur Geçmişi</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+            <a href="/Login/SignUp/" class="btn rounded-pill btn-warning">Yeni Kullanıcı Kaydı</a>
+        </div>
+    </div>
+</div>
+

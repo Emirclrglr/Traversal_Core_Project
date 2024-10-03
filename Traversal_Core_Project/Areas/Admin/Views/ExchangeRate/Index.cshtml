@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ExchangeRates_VM2.Exchange_Rates>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Booking Api Kur Bilgileri</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td align="center" style="font-weight: bold;">Para Birimi</td>
+                        <td align="center" style="font-weight: bold;">Kur Oranı</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td align="center">@item.currency</td>
+                            <td align="center">@item.exchange_rate_buy</td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+        </div>
+    </div>
+</div>
+

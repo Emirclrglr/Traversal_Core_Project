@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Rotalar</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Şehir</th>
+                        <th>Fiyat</th>
+                        <th>Kapasite</th>
+                        <td align="center" style="font-weight: bold;">Sitede Gör</td>
+                        <td align="center" style="font-weight: bold;">Sil</td>
+                        <td align="center" style="font-weight: bold;">Güncelle</td>
+                        <td align="center" style="font-weight: bold;">Detaylar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.City</td>
+                            <td>@item.Price$</td>
+                            <td>@item.Capacity</td>
+                            <td align="center"><a href="/Destination/DestinationDetails/@item.Id" class="btn rounded-pill btn-primary">Sitede Gör</a></td>
+                            <td align="center"><a href="/Admin/Destination/DeleteDestination/@item.Id" class="btn rounded-pill btn-danger">Sil</a></td>
+                            <td align="center"><a href="/Admin/Destination/UpdateDestination/@item.Id" class="btn rounded-pill btn-success">Güncelle</a></td>
+                            <td align="center"><a href="#" class="btn rounded-pill btn-info">Detaylar</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+            <a href="/Admin/Destination/AddDestination/" class="btn rounded-pill btn-dark">+ Yeni Rota Ekle</a>
+        </div>
+    </div>
+</div>
+
+

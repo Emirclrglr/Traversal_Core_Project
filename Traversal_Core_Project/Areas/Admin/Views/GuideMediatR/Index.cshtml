@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GetAllGuideQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h5 class="card-header">Rehber Listesi</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td align="center" style="font-weight: bold;">#</td>
+                        <td align="center" style="font-weight: bold;">Görsel</td>
+                        <td align="center" style="font-weight: bold;">Rehber Adı</td>
+                        <td align="center" style="font-weight: bold;">Hakkında</td>
+                        <td align="center" style="font-weight: bold;">Sil</td>
+                        <td align="center" style="font-weight: bold;">Güncelle</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td align="center">@count</td>
+                            <td align="center"><img src="@item.Image" alt="gorsel" style="height: 200px; width: 200px; border-radius: 10px;" /></td>
+                            <td align="center">@item.Name</td>
+                            <td align="center">@item.Description</td>
+                            <td align="center"><a href="/Admin/GuideMediatR/DeleteGuide/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                            <td align="center"><a href="/Admin/GuideMediatR/UpdateGuide/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+            <a href="/Admin/GuideMediatR/CreateGuide/" class="btn btn-outline-primary">Yeni Rehber Oluştur</a>
+        </div>
+    </div>
+</div>
+
+

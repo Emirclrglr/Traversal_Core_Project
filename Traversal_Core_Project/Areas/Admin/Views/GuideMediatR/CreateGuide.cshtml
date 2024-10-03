@@ -1,0 +1,45 @@
+﻿@model CreateGuideCommand
+@{
+    ViewData["Title"] = "CreateGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-xl">
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Rehber Oluştur</h5>
+        </div>
+        <div class="card-body">
+            <form method="post">
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Rehber Adı</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" required asp-for="Name" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Açıklama</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" required asp-for="Description" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Görsel</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" required asp-for="Image" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Twitter Adresi</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" required asp-for="TwitterUrl" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">Instagram Adresi</label>
+                    <input type="text" class="form-control" id="basic-default-fullname" required asp-for="InstagramUrl" />
+                </div>
+
+
+                <button type="submit" class="btn rounded-pill btn-primary">Oluştur</button>
+            </form>
+        </div>
+    </div>
+</div>

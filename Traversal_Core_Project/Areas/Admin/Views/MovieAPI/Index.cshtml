@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MovieAPI_VM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">IMDb Top 100 Film Listesi</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td align="center" style="font-weight: bold;">Sıra</td>
+                        <td align="center" style="font-weight: bold;">Görsel</td>
+                        <td align="center" style="font-weight: bold;">Film Adı</td>
+                        <td align="center" style="font-weight: bold;">Reyting</td>
+                        <td align="center" style="font-weight: bold;">Yıl</td>
+                        <td align="center" style="font-weight: bold;">Fragman</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td align="center">@item.rank</td>
+                            <td align="center"><img src="@item.image" alt="gorsel" style="height: 200px; width: 200px; border-radius: 10px;"/></td>
+                            <td align="center">@item.title</td>
+                            <td align="center">@item.rating</td>
+                            <td align="center">@item.year</td>
+                            <td align="center"><a href="@item.trailer" class="btn btn-outline-dark">Fragman</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+        </div>
+    </div>
+</div>
+
+
+

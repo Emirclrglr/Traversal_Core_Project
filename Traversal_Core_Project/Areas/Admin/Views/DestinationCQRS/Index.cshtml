@@ -1,0 +1,48 @@
+﻿@model IEnumerable<GetAllDestinationQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h5 class="card-header">CQRS ile tur rotaları listesi</h5>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td align="center" style="font-weight: bold;">#</td>
+                        <td align="center" style="font-weight: bold;">Görsel</td>
+                        <td align="center" style="font-weight: bold;">Rota</td>
+                        <td align="center" style="font-weight: bold;">Fiyat</td>
+                        <td align="center" style="font-weight: bold;">Gün-Gece</td>
+                        <td align="center" style="font-weight: bold;">Kapasite</td>
+                        <td align="center" style="font-weight: bold;">Sil</td>
+                        <td align="center" style="font-weight: bold;">Güncelle</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td align="center">@count</td>
+                            <td align="center"><img src="@item.Image" alt="gorsel" style="height: 200px; width: 200px; border-radius: 10px;" /></td>
+                            <td align="center">@item.City</td>
+                            <td align="center">@item.Price$</td>
+                            <td align="center">@item.LengthOfStay</td>
+                            <td align="center">@item.Capacity</td>
+                            <td align="center"><a href="/Admin/DestinationCQRS/DeleteDestination/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                            <td align="center"><a href="/Admin/DestinationCQRS/GetDestinationById/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <br />
+            <a href="/Admin/DestinationCQRS/CreateDestination" class="btn btn-outline-primary">Yeni Rota Oluştur</a>
+        </div>
+    </div>
+</div>
+
